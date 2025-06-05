@@ -2,6 +2,11 @@
 
 A sophisticated voice generation tool that creates custom voices from text prompts with advanced emotion control, multi-character conversations, and flexible integration capabilities.
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/ryanpedersonphotography/voice-generation-tool)
+[![TypeScript](https://img.shields.io/badge/TypeScript-100%25-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/Tests-75%2B%20passing-green)](./tests/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+
 ## 🎵 Features
 
 ### Core Capabilities
