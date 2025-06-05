@@ -1,17 +1,23 @@
 # Voice Generation Tool
 
-A sophisticated voice generation tool that creates custom voices from text prompts with advanced emotion control and flexible integration capabilities.
+A sophisticated voice generation tool that creates custom voices from text prompts with advanced emotion control, multi-character conversations, and flexible integration capabilities.
 
 ## 🎵 Features
 
-- **Multi-Provider Support**: ElevenLabs, OpenAI TTS, Google Cloud TTS, Amazon Polly
+### Core Capabilities
+- **Multi-Provider Support**: ElevenLabs, OpenAI TTS (Google Cloud TTS, Amazon Polly planned)
 - **Custom Voice Creation**: Generate voices from natural language descriptions
-- **Emotion Control**: Dynamic emotion mapping throughout text
+- **Emotion Control**: Dynamic emotion mapping and smooth transitions throughout text
+- **Multi-Character Conversations**: Generate dialogues with distinct character voices
+- **Advanced SSML Generation**: Sophisticated markup with prosody controls
 - **Batch Processing**: Generate multiple audio segments efficiently
 - **Multiple Formats**: MP3, WAV, AAC output support
+
+### Integration & Development
 - **MCP Integration**: Model Context Protocol server for Claude Desktop
 - **CLI Interface**: Command-line tool for quick generation
 - **TypeScript**: Full type safety and modern development
+- **Comprehensive Testing**: 75+ tests with emotion transitions and conversation validation
 
 ## 🚀 Quick Start
 
@@ -64,6 +70,77 @@ const audio = await engine.generateVoice({
 ```
 
 ## 📖 Usage Examples
+
+### Multi-Character Conversations (NEW in Phase 2)
+
+```typescript
+import { ConversationManager } from './src/core/conversation-manager.js';
+
+const conversationManager = new ConversationManager();
+
+// Generate a dialogue between characters
+const script = `
+  Alice: Hey Bob, how's the project going?
+  Bob [excited]: It's amazing! We just finished the voice system.
+  Alice [curious]: Really? Tell me more about it.
+  Bob [explaining]: We can now do emotion transitions and multi-character dialogues!
+`;
+
+const result = await conversationManager.generateConversation(script, {
+  characters: [
+    {
+      id: 'alice',
+      name: 'Alice',
+      voiceProfile: { provider: 'elevenlabs', voiceId: 'alice-voice' },
+      personality: { traits: ['friendly', 'curious'], speakingStyle: 'conversational' }
+    },
+    {
+      id: 'bob', 
+      name: 'Bob',
+      voiceProfile: { provider: 'elevenlabs', voiceId: 'bob-voice' },
+      personality: { traits: ['enthusiastic', 'technical'], speakingStyle: 'excited' }
+    }
+  ]
+});
+```
+
+### Emotion Transitions (NEW in Phase 2)
+
+```typescript
+import { EmotionTransitionEngine } from './src/core/emotion-transition-engine.js';
+
+const transitionEngine = new EmotionTransitionEngine();
+
+// Smooth emotion changes during speech
+await engine.generateVoice({
+  text: "I started calm, but then became really excited about this breakthrough!",
+  emotionTransitions: [
+    {
+      fromEmotion: { primary: 'calm', intensity: 0.6 },
+      toEmotion: { primary: 'excited', intensity: 0.9 },
+      duration: 2000,
+      curve: 'ease-in',
+      triggers: { word: 'excited' }
+    }
+  ]
+});
+```
+
+### Advanced SSML Generation (NEW in Phase 2)
+
+```typescript
+import { SSMLGenerator } from './src/utils/ssml-generator.js';
+
+const ssmlGenerator = new SSMLGenerator();
+
+// Generate sophisticated SSML with prosody controls
+const ssml = ssmlGenerator.generateSSML(
+  "This is *really* important information!",
+  character,
+  { primary: 'serious', intensity: 0.8 }
+);
+// Output includes emphasis, breaks, and emotion-aware prosody
+```
 
 ### Voice Customization
 
@@ -290,14 +367,29 @@ MIT License - see LICENSE file for details.
 LOG_LEVEL=debug npm run generate -- "test text"
 ```
 
-## 🚀 Future Features
+## 🚀 Development Status
 
-- [ ] Real-time voice generation
-- [ ] Voice style transfer
-- [ ] Custom voice training
-- [ ] WebSocket API
-- [ ] Voice conversation system
-- [ ] Integration with video tools
+### ✅ Phase 1: Foundation (COMPLETED)
+- Multi-provider voice synthesis system
+- Natural language voice prompt parsing  
+- Dynamic emotion control system
+- Professional audio processing
+- CLI interface and MCP server integration
+
+### ✅ Phase 2: Advanced Features (COMPLETED)
+- Multi-character conversation system
+- Smooth emotion transitions during speech
+- Advanced SSML generation with prosody controls
+- Character voice management and dialogue parsing
+- Audio mixing for multi-track conversations
+
+### 🔄 Upcoming Features (Phase 3-5)
+- [ ] Video timeline integration and synchronization
+- [ ] Real-time voice generation and modulation
+- [ ] Voice style transfer capabilities  
+- [ ] REST API with WebSocket support
+- [ ] Performance optimization and caching
+- [ ] Custom voice training and cloning enhancements
 
 ---
 

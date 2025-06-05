@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Environment variables
 .env
@@ -19,54 +20,46 @@ build/
 # Cache directories
 cache/
 .cache/
+.npm/
+.yarn/
+
+# Output files
 output/
-
-# Temporary files
-*.tmp
-*.temp
-temp/
-
-# Log files
-logs/
-*.log
-
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Audio files (output)
 *.mp3
 *.wav
 *.aac
 *.m4a
 
-# Test output
-test-output/
-examples/output/
+# Logs
+logs/
+*.log
 
-# Package manager
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# API keys and sensitive data
+*.key
+*.pem
+secrets/
+
+# Audio samples for development
+samples/
+test-audio/
+
+# Local development files
+local-*
+dev-*

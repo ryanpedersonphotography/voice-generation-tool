@@ -67,6 +67,7 @@ export interface GenerationRequest {
   modulation?: VoiceModulation;
   outputFormat: 'mp3' | 'wav' | 'aac';
   emotionMap?: EmotionMapEntry[];
+  emotionTransitions?: import('./emotion-transition.interface.js').EmotionTransition[];
 }
 
 export interface AudioProcessingOptions {
